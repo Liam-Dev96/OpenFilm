@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %} 
+{% block content %}
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; margin-top: 20ch;">
+        <h1>Account Details</h1>
+        <div class="account-details" style="text-align: left;">
+            <p><strong>First Name:</strong> {{ user.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+            <p><strong>Email Address:</strong> {{ user.email }}</p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <a style="background-color: #880000;" href="/change-email" class="btn btn-primary"><button>Change Email</button></a>
+            <a style="background-color: #880000;" href="/change-password" class="btn btn-primary"><button>Change Password</button></a>
+        </div>
+    </div>
+
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; margin-top: 20ch;">
+        <a style="background-color: #880000;" href="/logout" class="btn btn-primary"><button>Logout</button></a>
+        <a style="background-color: #880000;" href="/delete-account" class="btn btn-primary"><button>Delete Account</button></a>
+    </div>
+{% endblock %}

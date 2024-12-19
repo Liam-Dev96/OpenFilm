@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<head>
+    <title>Registration</title>
+    </head>
+    <body>
+    
+    <form style="text-align: center; align-content: center" class="signup-form justify-content-center" method = "POST">
+     
+     <div class="form-header">
+    <h1>create account</h1>
+    </div>
+     
+     <div class="form-body">
+     
+     <div class="horizontal-group justify-content-center">
+     <div class="form-group left">
+     <label for="first_name" class="label-title">First name:*</label><br>
+      <input type="text" id="first_name" class="form-input" name="first_name" placeholder="Enter First Name"><br>
+      </div>
+      
+      <div class="form-group right">
+        <label for="last_name" class="label-title">Last name:*</label><br>
+      <input type="text" id="last_name" class="form-input" name="last_name" placeholder="Enter Last Name"><br>
+    </div>
+    </div>
+    
+    <div class="form-group">
+    <label for="email" class="label-title">Email:*</label><br>
+    <input type="email" id="email" class="form-input" name="email" placeholder="Enter Email" required="required"><br>
+    </div>
+    
+     <div class="horizontal-group justify-content-center">
+     <div class="form-group left">
+     <label for="pass1" class="label-title">Password:*</label><br>
+      <input type="password" id="pass1" class="form-input" name="pass1" placeholder="Enter Password" required="required"><br>
+      </div>
+      
+      <div class="form-group right">
+    <label for="pass2" class="label-title">Confirm Password:*</label><br>
+      <input type="password" id="pass2" class="form-input" name="pass2" placeholder="Re-Enter Password" required="required"><br>
+     </div>
+    </div>
+    
+    </div> <!-- form body end -->
+    <div class="form-footer">
+              <label for="submit"></label><br>
+      <input type="submit" id="submit" name="submit" value="Register">
+    </div>
+    
+    
+    </form>
+    
+
+{% endblock content %}
+

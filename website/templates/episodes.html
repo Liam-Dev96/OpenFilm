@@ -1,0 +1,22 @@
+{% extends "base.html" %}{% block title %}Episodes{% endblock %}{% block content %}
+
+{% if current_user.is_authenticated %}
+
+<div class="media-scroller snaps-inline">
+    {% for episode in episode if tv_show.tv_id == episode.tv_id %}
+        <a href="{{ url_for('views.view_episode', tv_id=tv_show.tv_id, ep_id=episode.ep_id)}}" style="color: #FEC63D">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename=tv_show.img.replace('static/', '')) }}" class="card-img-top" alt="tv" class="img-thumbnail bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tv_show.title }}</h5>
+                    <h5>Season: {{ episode.season_no }} ep {{ episode.episode_no }}</h5>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+{% else %}
+    <p>There is nothing to show!</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %} 
+{% block title %}TV Shows{% endblock %} 
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<h2>Action Series</h2>
+<div class="media-scroller snaps-inline">
+    {% for tv_show in tv_shows if tv_show.genre == 'Action' %}
+        <a href="{{ url_for('views.view_tv_show', id=tv_show.tv_id) }}" style="color: #FEC63D">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ tv_show.img }}" class="card-img-top" alt="tv" class="img-thumbnail bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tv_show.title }}</h5>
+                    <h5>{{ tv_show.num_seasons }} Seasons</h5>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+<h2>Horror Series</h2>
+<div class="media-scroller snaps-inline">
+    {% for tv_show in tv_shows if tv_show.genre == 'Horror' %}
+        <a href="{{ url_for('views.view_tv_show', id=tv_show.tv_id) }}" style="color: #FEC63D">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ tv_show.img }}" class="card-img-top" alt="tv" class="img-thumbnail bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tv_show.title }}</h5>
+                    <h5>{{ tv_show.num_seasons }} Seasons</h5>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+<h2>Comedy Series</h2>
+<div class="media-scroller snaps-inline">
+    {% for tv_show in tv_shows if tv_show.genre == 'Comedy' %}
+        <a href="{{ url_for('views.view_tv_show', id=tv_show.tv_id) }}" style="color: #FEC63D">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ tv_show.img }}" class="card-img-top" alt="tv" class="img-thumbnail bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tv_show.title }}</h5>
+                    <h5>{{ tv_show.num_seasons }} Seasons</h5>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+<h2>Drama Series</h2>
+<div class="media-scroller snaps-inline">
+    {% for tv_show in tv_shows if tv_show.genre == 'Drama' %}
+        <a href="{{ url_for('views.view_tv_show', id=tv_show.tv_id) }}" style="color: #FEC63D">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ tv_show.img }}" class="card-img-top" alt="tv" class="img-thumbnail bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tv_show.title }}</h5>
+                    <h5>{{ tv_show.num_seasons }} Seasons</h5>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+{% else %}
+    <h1>There is nothing to show!</h1>
+{% endif %}
+{% endblock %}

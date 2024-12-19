@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block title %}{{ episode2.title }}{% endblock %}{% block content %}
+
+{% if current_user.is_authenticated %}
+    <div class="container" style="display: block; align-content: center; justify-content: center;">
+    <h1>{{ episode.ep_title }}</h1>
+    <img src="{{ url_for('static', filename=tv_show.img.replace('static/', '')) }}" alt="{{ episode.title }}" class="img-thumbnail">
+    <p><strong>Description:</strong> {{ episode.description }}</p>
+    <h2>Watch episode: {{ episode.episode_no }}</h2>
+    <div class="video-container">
+        <iframe class="embed-responsive-item" src="{{ episode.preview }}" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+    </div>
+    <br>
+
+{% endif %}
+{% endblock %}

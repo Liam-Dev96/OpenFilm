@@ -1,0 +1,66 @@
+{% extends "base.html" %} 
+{% block title %}Movies{% endblock %} 
+{% block content %}
+
+{% if current_user.is_authenticated %}
+    <h2 style="text-align: left;">Sci-Fi Movies</h2>
+    <div class="media-scroller snaps-inline">
+        {% for movie in movies if movie.genre == 'Sci-Fi' %}
+            <a href="{{ url_for('views.view_movie', id=movie.id) }}" style="color: #FEC63D">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ movie.img }}" class="card-img-top" alt="movie" class="img-thumbnail bg-secondary">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ movie.movie_title }}</h5>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <h2 style="text-align: left;">Action Movies</h2>
+    <div class="media-scroller snaps-inline">
+        {% for movie in movies if movie.genre == 'Action' %}
+            <a href="{{ url_for('views.view_movie', id=movie.id) }}" style="color: #FEC63D">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ movie.img }}" class="card-img-top" alt="movie" class="img-thumbnail bg-secondary">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ movie.movie_title }}</h5>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <h2 style="text-align: left;">Horror Movies</h2>
+    <div class="media-scroller snaps-inline">
+        {% for movie in movies if movie.genre == 'Horror' %}
+            <a href="{{ url_for('views.view_movie', id=movie.id) }}" style="color: #FEC63D">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ movie.img }}" class="card-img-top" alt="movie" class="img-thumbnail bg-secondary">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ movie.movie_title }}</h5>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <h2 style="text-align: left;">Comedy Movies</h2>
+    <div class="media-scroller snaps-inline">
+        {% for movie in movies if movie.genre == 'Comedy' %}
+            <a href="{{ url_for('views.view_movie', id=movie.id) }}" style="color: #FEC63D">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ movie.img }}" class="card-img-top" alt="movie" class="img-thumbnail bg-secondary">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ movie.movie_title }}</h5>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+
+{% else %}
+    <h1>There is nothing to show!</h1>
+{% endif %}
+{% endblock %}

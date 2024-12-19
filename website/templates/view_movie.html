@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% block title %}{{ movie.movie_title }}{% endblock %} 
+{% block content %}
+
+{% if current_user.is_authenticated %}
+    <div class="container" style="display: block; align-content: center; justify-content: center;">
+    <h1>{{ movie.movie_title }}</h1>
+    <img src="{{ url_for('static', filename=movie.img.replace('static/', '')) }}" alt="{{ movie.movie_title }}" class="img-thumbnail">
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Description:</strong> {{ movie.further_info }}</p>
+    <p><strong>Review:</strong> {{ movie.review }}</p>
+    <div class="video-container">
+        <h1>Preview</h1>
+        <iframe class="embed-responsive-item" src="{{ movie.preview }}" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+    </div>
+    <a href="{{ url_for('static', filename=movie.full_content) }}" download>Download Full Movie</a>
+</div>
+{% endif %}
+{% endblock %}
